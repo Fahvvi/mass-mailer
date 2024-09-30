@@ -8,18 +8,18 @@ import os
 import csv
 
 # Gmail account credentials
-GMAIL_USERNAME = 'mail.someonestd@gmail.com'
-GMAIL_PASSWORD = 'nqrdeaaibqqsvzvv'
+GMAIL_USERNAME = 'yourmail@gmail.com'
+GMAIL_PASSWORD = 'xxxxxxx' #paste app password without spaces
 
 # SMTP server settings
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 
 # Folder path containing files to attach
-FILE_FOLDER = r'C:\Users\fahmi\Documents\Coding\Slip\email\File'
+FILE_FOLDER = r'C:\xx\xx\xx\File'
 
 # CSV file path containing target email addresses
-CSV_FILE = r'C:\Users\fahmi\Documents\Coding\Slip\email\targets.csv'
+CSV_FILE = r'C:\xx\xx\xx\targets.csv'
 
 # Function to send email with attachment
 def send_email(subject, message, from_addr, to_addr, file_path):
@@ -56,8 +56,8 @@ with open(CSV_FILE, 'r') as csvfile:
         email, file_name = row[0].split(';')
         targets.append({'email': email, 'file_path': os.path.join(FILE_FOLDER, file_name)})
 
-subject = 'SLIP GAJI AGUSTUS 2024'
-message = 'Kepada: Karyawan PT.Selaras Donlim Indonesia, Kami Infokan terkait Slip gaji Agustus 2024 Saudara/i Slip Gaji Bersifat RAHASIA, TIdak untuk di perlihatkan atau diberitahukan kepada pihak lain kecuali untuk kebutuhan tertentu yang mengharuskan menggunakan data slip gaji. Terimakasih, Best Regards HRGA.'
+subject = 'Test'
+message = 'Test email mass-mailer with attachments'
 
 for target in targets:
     send_email(subject, message, GMAIL_USERNAME, target['email'], target['file_path'])
